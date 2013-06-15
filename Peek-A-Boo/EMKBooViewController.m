@@ -29,7 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupAVCaptureSession];
 
     [UIView animateWithDuration:2.5
                           delay:1.5
@@ -37,7 +36,9 @@
                      animations:^{
                          _booImageView.alpha = 1.0;
                      }
-                     completion:nil
+                     completion:^(BOOL finished) {
+                          [self setupAVCaptureSession];
+                     }
      ];
 }
 
