@@ -75,10 +75,31 @@
 {
     if([faces count] != 0)
     {
-        _booImageView.image = [UIImage imageNamed:@"shy_boo"];
+        [self hideBoo];
     }else{
-        _booImageView.image = [UIImage imageNamed:@"boo"];
+        [self showBoo];
     }
+}
+
+-(void)hideBoo
+{
+    _booImageView.image = [UIImage imageNamed:@"shy_boo"];
+    [UIView animateWithDuration:0.5
+                     animations:^{
+                         _booImageView.alpha = 0.5;
+                     }
+     ];
+}
+
+-(void)showBoo
+{
+    _booImageView.image = [UIImage imageNamed:@"boo"];
+    [UIView animateWithDuration:0.4
+                     animations:^{
+                         _booImageView.alpha = 1.0;
+                     }
+     ];
+    
 }
 
 - (void)didReceiveMemoryWarning
