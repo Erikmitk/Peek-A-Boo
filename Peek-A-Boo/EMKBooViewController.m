@@ -68,7 +68,9 @@
     [[_metadataOutput connectionWithMediaType:AVMediaTypeMetadata] setEnabled:YES];
     [_session addOutput:_metadataOutput];
 
-    _metadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeFace];
+    if ([_metadataOutput.availableMetadataObjectTypes containsObject:AVMetadataObjectTypeFace]) {
+        _metadataOutput.metadataObjectTypes = @[AVMetadataObjectTypeFace];
+    }
 
     [_session startRunning];
 }
