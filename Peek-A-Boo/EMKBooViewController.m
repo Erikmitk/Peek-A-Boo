@@ -72,7 +72,7 @@
     [_session startRunning];
 }
 
--(void) captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)faces fromConnection:(AVCaptureConnection *)connection
+- (void) captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)faces fromConnection:(AVCaptureConnection *)connection
 {
     if([faces count] != 0)
     {
@@ -82,7 +82,7 @@
     }
 }
 
--(void)hideBoo
+- (void)hideBoo
 {
     _booImageView.image = [UIImage imageNamed:@"shy_boo"];
     [UIView animateWithDuration:0.5
@@ -92,7 +92,7 @@
      ];
 }
 
--(void)showBoo
+- (void)showBoo
 {
     _booImageView.image = [UIImage imageNamed:@"boo"];
     [UIView animateWithDuration:0.4
