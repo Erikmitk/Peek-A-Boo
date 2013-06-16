@@ -37,7 +37,8 @@
                          _booImageView.alpha = 1.0;
                      }
                      completion:^(BOOL finished) {
-                          [self setupAVCaptureSession];
+                         [self floatBoo];
+                         [self setupAVCaptureSession];
                      }
      ];
 }
@@ -84,6 +85,7 @@
 
 - (void)hideBoo
 {
+    [self resetBooPosition];
     _booImageView.image = [UIImage imageNamed:@"shy_boo"];
     [UIView animateWithDuration:0.5
                      animations:^{
@@ -99,8 +101,34 @@
                      animations:^{
                          _booImageView.alpha = 1.0;
                      }
+                     completion:^(BOOL finished) {
+                         [self floatBoo];
+                     }
      ];
-    
+}
+
+- (void)floatBoo
+{
+    [UIView animateWithDuration:0.7
+                          delay:0.0
+                        options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         _booImageView.frame = CGRectMake(_booImageView.frame.origin.x, _booImageView.frame.origin.y + 5, _booImageView.frame.size.width, _booImageView.frame.size.height);
+                     }
+                     completion:nil
+     ];
+}
+
+- (void)resetBooPosition
+{
+    [UIView animateWithDuration:0.4
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         _booImageView.frame = CGRectMake(101, 101, 117, 114);
+                     }
+                     completion:nil
+     ];
 }
 
 - (void)didReceiveMemoryWarning
