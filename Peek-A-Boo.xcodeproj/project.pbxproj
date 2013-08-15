@@ -29,6 +29,10 @@
 		47557C3E176CEA4800B002DD /* shy_boo.png in Resources */ = {isa = PBXBuildFile; fileRef = 47557C3A176CEA4800B002DD /* shy_boo.png */; };
 		47557C3F176CEA4800B002DD /* shy_boo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47557C3B176CEA4800B002DD /* shy_boo@2x.png */; };
 		47557C42176CEA8000B002DD /* EMKBooViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47557C41176CEA8000B002DD /* EMKBooViewController.m */; };
+		4778B636177090FD00F88220 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4778B632177090FD00F88220 /* libTestFlight.a */; };
+		4778B637177090FD00F88220 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4778B633177090FD00F88220 /* README.md */; };
+		4778B638177090FD00F88220 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4778B634177090FD00F88220 /* release_notes.md */; };
+		4778B63A1770911C00F88220 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4778B6391770911C00F88220 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,11 @@
 		47557C3B176CEA4800B002DD /* shy_boo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shy_boo@2x.png"; sourceTree = "<group>"; };
 		47557C40176CEA8000B002DD /* EMKBooViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMKBooViewController.h; sourceTree = "<group>"; };
 		47557C41176CEA8000B002DD /* EMKBooViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMKBooViewController.m; sourceTree = "<group>"; };
+		4778B632177090FD00F88220 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		4778B633177090FD00F88220 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4778B634177090FD00F88220 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		4778B635177090FD00F88220 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		4778B6391770911C00F88220 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +79,8 @@
 				47557C03176CE97A00B002DD /* UIKit.framework in Frameworks */,
 				47557C05176CE97A00B002DD /* Foundation.framework in Frameworks */,
 				47557C07176CE97A00B002DD /* CoreGraphics.framework in Frameworks */,
+				4778B636177090FD00F88220 /* libTestFlight.a in Frameworks */,
+				4778B63A1770911C00F88220 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +90,8 @@
 		47557BF6176CE97900B002DD = {
 			isa = PBXGroup;
 			children = (
+				4778B6391770911C00F88220 /* libz.dylib */,
+				4778B631177090FD00F88220 /* TestFlightSDK1.2.6 */,
 				47557C1F176CE9A600B002DD /* AVFoundation.framework */,
 				47557C08176CE97A00B002DD /* Peek-A-Boo */,
 				47557C01176CE97A00B002DD /* Frameworks */,
@@ -165,6 +178,17 @@
 			name = Defaults;
 			sourceTree = "<group>";
 		};
+		4778B631177090FD00F88220 /* TestFlightSDK1.2.6 */ = {
+			isa = PBXGroup;
+			children = (
+				4778B632177090FD00F88220 /* libTestFlight.a */,
+				4778B633177090FD00F88220 /* README.md */,
+				4778B634177090FD00F88220 /* release_notes.md */,
+				4778B635177090FD00F88220 /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.2.6;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,6 +256,8 @@
 				47557C3D176CEA4800B002DD /* boo@2x.png in Resources */,
 				47557C3E176CEA4800B002DD /* shy_boo.png in Resources */,
 				47557C3F176CEA4800B002DD /* shy_boo@2x.png in Resources */,
+				4778B637177090FD00F88220 /* README.md in Resources */,
+				4778B638177090FD00F88220 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +350,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Peek-A-Boo/Peek-A-Boo-Prefix.pch";
 				INFOPLIST_FILE = "Peek-A-Boo/Peek-A-Boo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1.2.6\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -332,10 +362,18 @@
 		47557C1E176CE97A00B002DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Peek-A-Boo/Peek-A-Boo-Prefix.pch";
 				INFOPLIST_FILE = "Peek-A-Boo/Peek-A-Boo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1.2.6\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -359,6 +397,7 @@
 				47557C1E176CE97A00B002DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
