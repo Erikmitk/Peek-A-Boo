@@ -115,7 +115,11 @@
                           delay:0.0
                         options:UIViewAnimationOptionAutoreverse | UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         _booImageView.frame = CGRectMake(_booImageView.frame.origin.x, _booImageView.frame.origin.y + 5, _booImageView.frame.size.width, _booImageView.frame.size.height);
+                         _booImageView.frame = CGRectMake(CGRectGetMaxX(_booImageView.frame),
+														  CGRectGetMaxY(_booImageView.frame) + 5,
+														  CGRectGetWidth(_booImageView.frame),
+														  CGRectGetHeight(_booImageView.frame)
+														  );
                      }
                      completion:nil
      ];
